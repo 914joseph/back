@@ -47,12 +47,10 @@ class ColaboradorSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("CPF deve ter 11 dígitos.")
         if value == value[0] * 11:
             raise serializers.ValidationError("CPF inválido.")
-        # Calculate first check digit
         sum1 = sum(int(value[i]) * (10 - i) for i in range(9))
         digit1 = (sum1 * 10 % 11) % 10
         if digit1 != int(value[9]):
             raise serializers.ValidationError("CPF inválido.")
-        # Calculate second check digit
         sum2 = sum(int(value[i]) * (11 - i) for i in range(10))
         digit2 = (sum2 * 10 % 11) % 10
         if digit2 != int(value[10]):
