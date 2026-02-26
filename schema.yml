@@ -1,0 +1,1186 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /api/avaliacao/:
+    get:
+      operationId: avaliacao_list
+      tags:
+      - avaliacao
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+    post:
+      operationId: avaliacao_create
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+  /api/avaliacao/{avaliacao_pk}/item/:
+    get:
+      operationId: avaliacao_item_list
+      parameters:
+      - in: path
+        name: avaliacao_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - avaliacao
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          description: ''
+    post:
+      operationId: avaliacao_item_create
+      parameters:
+      - in: path
+        name: avaliacao_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          description: ''
+  /api/avaliacao/{avaliacao_pk}/item/{id}/:
+    get:
+      operationId: avaliacao_item_retrieve
+      parameters:
+      - in: path
+        name: avaliacao_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this item avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          description: ''
+    put:
+      operationId: avaliacao_item_update
+      parameters:
+      - in: path
+        name: avaliacao_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this item avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          description: ''
+    patch:
+      operationId: avaliacao_item_partial_update
+      parameters:
+      - in: path
+        name: avaliacao_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this item avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedItemAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedItemAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedItemAvaliacaoDesempenho'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          description: ''
+    delete:
+      operationId: avaliacao_item_destroy
+      parameters:
+      - in: path
+        name: avaliacao_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this item avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/avaliacao/{id}/:
+    get:
+      operationId: avaliacao_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+    put:
+      operationId: avaliacao_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+    patch:
+      operationId: avaliacao_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAvaliacaoDesempenho'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+    delete:
+      operationId: avaliacao_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/avaliacao/{id}/atualizar_nota/:
+    post:
+      operationId: avaliacao_atualizar_nota_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+  /api/avaliacao/{id}/concluir/:
+    post:
+      operationId: avaliacao_concluir_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+  /api/avaliacao/{id}/dar_feedback/:
+    post:
+      operationId: avaliacao_dar_feedback_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+  /api/avaliacao/{id}/iniciar/:
+    post:
+      operationId: avaliacao_iniciar_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this avaliacao desempenho.
+        required: true
+      tags:
+      - avaliacao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaliacaoDesempenho'
+          description: ''
+  /api/colaboradores/:
+    get:
+      operationId: colaboradores_list
+      tags:
+      - colaboradores
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Colaborador'
+          description: ''
+    post:
+      operationId: colaboradores_create
+      tags:
+      - colaboradores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Colaborador'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Colaborador'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Colaborador'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colaborador'
+          description: ''
+  /api/colaboradores/{id}/:
+    get:
+      operationId: colaboradores_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this colaborador.
+        required: true
+      tags:
+      - colaboradores
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colaborador'
+          description: ''
+    put:
+      operationId: colaboradores_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this colaborador.
+        required: true
+      tags:
+      - colaboradores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Colaborador'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Colaborador'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Colaborador'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colaborador'
+          description: ''
+    patch:
+      operationId: colaboradores_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this colaborador.
+        required: true
+      tags:
+      - colaboradores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedColaborador'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedColaborador'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedColaborador'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colaborador'
+          description: ''
+    delete:
+      operationId: colaboradores_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this colaborador.
+        required: true
+      tags:
+      - colaboradores
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - ht
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/tipoitem/:
+    get:
+      operationId: tipoitem_list
+      tags:
+      - tipoitem
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          description: ''
+    post:
+      operationId: tipoitem_create
+      tags:
+      - tipoitem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          description: ''
+  /api/tipoitem/{id}/:
+    get:
+      operationId: tipoitem_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tipo item avaliacao desempenho.
+        required: true
+      tags:
+      - tipoitem
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          description: ''
+    put:
+      operationId: tipoitem_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tipo item avaliacao desempenho.
+        required: true
+      tags:
+      - tipoitem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          description: ''
+    patch:
+      operationId: tipoitem_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tipo item avaliacao desempenho.
+        required: true
+      tags:
+      - tipoitem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTipoItemAvaliacaoDesempenho'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTipoItemAvaliacaoDesempenho'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTipoItemAvaliacaoDesempenho'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          description: ''
+    delete:
+      operationId: tipoitem_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tipo item avaliacao desempenho.
+        required: true
+      tags:
+      - tipoitem
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    AvaliacaoDesempenho:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        colaborador:
+          allOf:
+          - $ref: '#/components/schemas/Colaborador'
+          readOnly: true
+        supervisor:
+          allOf:
+          - $ref: '#/components/schemas/Colaborador'
+          readOnly: true
+        itemavaliacaodesempenho:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          readOnly: true
+        mesCompetencia:
+          allOf:
+          - $ref: '#/components/schemas/MesCompetenciaEnum'
+          minimum: 0
+          maximum: 32767
+        statusAvaliacao:
+          $ref: '#/components/schemas/StatusAvaliacaoEnum'
+        nota:
+          type: number
+          format: double
+        sugestoesSupervisor:
+          type: string
+        observacoesAvaliado:
+          type: string
+      required:
+      - colaborador
+      - id
+      - itemavaliacaodesempenho
+      - mesCompetencia
+      - sugestoesSupervisor
+      - supervisor
+    Colaborador:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nome:
+          type: string
+          maxLength: 200
+        cpf:
+          type: string
+          maxLength: 11
+        tipo:
+          allOf:
+          - $ref: '#/components/schemas/TipoEnum'
+          minimum: -2147483648
+          maximum: 2147483647
+      required:
+      - cpf
+      - id
+      - nome
+    DimensaoEnum:
+      enum:
+      - Comportamento
+      - Entregas
+      - Trabalho em equipe
+      type: string
+      description: |-
+        * `Comportamento` - Comportamento
+        * `Entregas` - Entregas
+        * `Trabalho em equipe` - Trab Equipe
+    ItemAvaliacaoDesempenho:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipoItemAvaliacaoDesempenho:
+          allOf:
+          - $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          readOnly: true
+        observacoes:
+          type: string
+        nota:
+          type: integer
+          maximum: 5
+          minimum: 1
+        avaliacaoDesempenho:
+          type: integer
+      required:
+      - avaliacaoDesempenho
+      - id
+      - nota
+      - observacoes
+      - tipoItemAvaliacaoDesempenho
+    MesCompetenciaEnum:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      type: integer
+      description: |-
+        * `1` - Janeiro
+        * `2` - Fevereiro
+        * `3` - Março
+        * `4` - Abril
+        * `5` - Maio
+        * `6` - Junho
+        * `7` - Julho
+        * `8` - Agosto
+        * `9` - setembro
+        * `10` - Outubro
+        * `11` - Novembro
+        * `12` - Dezembro
+    PatchedAvaliacaoDesempenho:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        colaborador:
+          allOf:
+          - $ref: '#/components/schemas/Colaborador'
+          readOnly: true
+        supervisor:
+          allOf:
+          - $ref: '#/components/schemas/Colaborador'
+          readOnly: true
+        itemavaliacaodesempenho:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAvaliacaoDesempenho'
+          readOnly: true
+        mesCompetencia:
+          allOf:
+          - $ref: '#/components/schemas/MesCompetenciaEnum'
+          minimum: 0
+          maximum: 32767
+        statusAvaliacao:
+          $ref: '#/components/schemas/StatusAvaliacaoEnum'
+        nota:
+          type: number
+          format: double
+        sugestoesSupervisor:
+          type: string
+        observacoesAvaliado:
+          type: string
+    PatchedColaborador:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nome:
+          type: string
+          maxLength: 200
+        cpf:
+          type: string
+          maxLength: 11
+        tipo:
+          allOf:
+          - $ref: '#/components/schemas/TipoEnum'
+          minimum: -2147483648
+          maximum: 2147483647
+    PatchedItemAvaliacaoDesempenho:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipoItemAvaliacaoDesempenho:
+          allOf:
+          - $ref: '#/components/schemas/TipoItemAvaliacaoDesempenho'
+          readOnly: true
+        observacoes:
+          type: string
+        nota:
+          type: integer
+          maximum: 5
+          minimum: 1
+        avaliacaoDesempenho:
+          type: integer
+    PatchedTipoItemAvaliacaoDesempenho:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        dimensao:
+          $ref: '#/components/schemas/DimensaoEnum'
+        tipoItemAvaliacaoDesempenho:
+          type: string
+        descricao:
+          type: string
+    StatusAvaliacaoEnum:
+      enum:
+      - Criada
+      - Em elaboração
+      - Em avaliação
+      - Concluída
+      type: string
+      description: |-
+        * `Criada` - Criada
+        * `Em elaboração` - Elaboracao
+        * `Em avaliação` - Avaliacao
+        * `Concluída` - Concluida
+    TipoEnum:
+      enum:
+      - 1
+      - 2
+      type: integer
+      description: |-
+        * `1` - Colaborador
+        * `2` - Supervisor
+    TipoItemAvaliacaoDesempenho:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        dimensao:
+          $ref: '#/components/schemas/DimensaoEnum'
+        tipoItemAvaliacaoDesempenho:
+          type: string
+        descricao:
+          type: string
+      required:
+      - descricao
+      - dimensao
+      - id
+      - tipoItemAvaliacaoDesempenho
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
